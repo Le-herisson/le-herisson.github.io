@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /extensions/
+Disallow: /tmp
+
+User-agent: Googlebot
+Disallow: /index.html
