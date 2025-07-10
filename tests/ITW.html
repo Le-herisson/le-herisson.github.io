@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>test integration TW</title>
-    </head>
-    <body>
-		<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
-			<iframe id="iframeTwitch" src="about:blank" height="100%" width="100%" frameborder="0" allowfullscreen></iframe>
-		</div>
+<head>
+	<title>test integration TW</title>
+</head>
+<body>
+	<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
+		<iframe id="iframeTwitch" src="about:blank" height="100%" width="100%" frameborder="0" allowfullscreen></iframe>
+	</div>
         <script>
-			function ChannelError(){
-				alert('Error please see the console');
-				console.error('The channel is not specified');
-				console.warn('Use ?channel=:channel');
-				return "example";
-			}
-			
-			const params = new URLSearchParams(window.location.search);
-			
-			console.debug("channel = " + params.get("channel"));
-			console.debug("autoplay = " + params.get("autoplay"));
-			console.debug("muted = " + params.get("muted"));
-			console.debug("time = " + params.get("time"));
-			
-			channel = params.get("channel") == null ? ChannelError() : params.get("channel");
-			autoplay = params.get("autoplay") == null ? false : params.get("autoplay");
-			muted = params.get("muted") == null ? true : params.get("muted");
-			time = params.get("time") == null ? 0 : params.get("time");
-
-			console.log("channel = " + channel);
-			console.log("autoplay = " + autoplay);
-			console.log("muted = " + muted);
-			console.log("time = " + time);
-			
-			let hn = window.location.hostname;
-			//hn = "le-herisson.github.io";
-			let link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}&autoplay=${autoplay}&muted=${muted}&time=${time}s`;
-			console.debug(link);
-			document.getElementById('iframeTwitch').src = link;
-		</script>
-	</body>
+		function ChannelError(){
+			alert('Error please see the console');
+			console.error('The channel is not specified');
+			console.warn('Use ?channel=:channel');
+			return "example";
+		}
+		let hn = window.location.hostname;		
+		const params = new URLSearchParams(window.location.search);
+	
+		channel = params.get("channel") == null ? ChannelError() : params.get("channel");
+		autoplay = params.get("autoplay") == null ? false : params.get("autoplay");
+		muted = params.get("muted") == null ? true : params.get("muted");
+		time = params.get("time") == null ? 0 : params.get("time");
+	
+		console.debug("channel = " + channel);
+		console.debug("autoplay = " + autoplay);
+		console.debug("muted = " + muted);
+		console.debug("time = " + time);
+	
+		let link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}&autoplay=${autoplay}&muted=${muted}&time=${time}s`;
+		console.debug(link);
+		document.getElementById('iframeTwitch').src = link;
+	</script>
+</body>
 </html>
