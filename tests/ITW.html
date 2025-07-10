@@ -28,6 +28,8 @@
 			console.log("autoplay = " + autoplay);
 			console.log("muted = " + muted);
 			console.log("time = " + time);
+			
+			console.debug("https://player.twitch.tv/?channel=" + channel + "&parent=" + window.location.hostname + "&autoplay=" + autoplay + "&muted=" + muted + "&time=" + time + "s");
 		</script>
 		<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
 			<iframe src="https://player.twitch.tv/?channel=" + channel + "&parent=" + window.location.hostname + "&autoplay=" + autoplay + "&muted=" + muted + "&time=" + time + "s" height="720" width="1280" frameborder="0" allowfullscreen></iframe>
