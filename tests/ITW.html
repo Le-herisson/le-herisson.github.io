@@ -4,6 +4,9 @@
         <title>test integration TW</title>
     </head>
     <body>
+		<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
+			<iframe id="iframeTwitch" src="about:blank" height="720" width="1280" frameborder="0" allowfullscreen></iframe>
+		</div>
         <script>
 			function ChannelError(){
 				alert('Error please see the console');
@@ -36,8 +39,5 @@
 			console.debug(link);
 			document.getElementById('iframeTwitch').src = link;
 		</script>
-		<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
-			<iframe id="iframeTwitch" src="about:blank" height="720" width="1280" frameborder="0" allowfullscreen></iframe>
-		</div>
 	</body>
 </html>
