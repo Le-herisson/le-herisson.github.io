@@ -33,9 +33,8 @@
 			console.log("time = " + time);
 			
 			let hn = window.location.hostname;
-			hn = "le-herisson.github.io";
-			let link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}`;
-			// + "&autoplay=" + autoplay + "&muted=" + muted + "&time=" + time + "s"
+			//hn = "le-herisson.github.io";
+			let link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}&autoplay=${autoplay}&muted=${muted}&time=${time}s`;
 			console.debug(link);
 			document.getElementById('iframeTwitch').src = link;
 		</script>
