@@ -31,12 +31,12 @@
 			
 			let hn = window.location.hostname;
 			hn = "le-herisson.github.io";
-			let link = "https://player.twitch.tv/?channel=" + channel + "&parent=" + hn;
+			let link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}`;
 			// + "&autoplay=" + autoplay + "&muted=" + muted + "&time=" + time + "s"
 			console.debug(link);
 		</script>
 		<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
-			<iframe src="https://player.twitch.tv/?channel=" + channel + "&parent=" + hn height="720" width="1280" frameborder="0" allowfullscreen></iframe>
+			<iframe src=`https://player.twitch.tv/?channel=${channel}&parent=${hn}` height="720" width="1280" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</body>
 </html>
