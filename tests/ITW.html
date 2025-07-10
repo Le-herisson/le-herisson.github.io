@@ -34,9 +34,10 @@
 			let link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}`;
 			// + "&autoplay=" + autoplay + "&muted=" + muted + "&time=" + time + "s"
 			console.debug(link);
+			document.getElementById('iframeTwitch').src = link;
 		</script>
 		<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
-			<iframe src=`${link}` height="720" width="1280" frameborder="0" allowfullscreen></iframe>
+			<iframe id="iframeTwitch" src="about:blank" height="720" width="1280" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</body>
 </html>
