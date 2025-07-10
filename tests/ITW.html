@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test integration TW</title>
+    </head>
+    <body>
+        <script>
+			function ChannelError(){
+				alert('Error please see the console');
+				console.error('The channel is not specified');
+				console.warn('Use ?channel=:channel');
+				return "example";
+			}
+			
+			const params = new URLSearchParams(window.location.search);
+			
+			console.debug("channel = " + params.get("channel"));
+			console.debug("autoplay = " + params.get("autoplay"));
+			console.debug("muted = " + params.get("muted"));
+			console.debug("time = " + params.get("time"));
+			
+			channel = params.get("channel") == null ? ChannelError() : params.get("channel");
+			autoplay = params.get("autoplay") == null ? false : params.get("autoplay");
+			muted = params.get("muted") == null ? true : params.get("muted");
+			time = params.get("time") == null ? 0 : params.get("time");
+			
+			console.log("channel = " + channel);
+			console.log("autoplay = " + autoplay);
+			console.log("muted = " + muted);
+			console.log("time = " + time);
+		</script>
+		<div>
+			<iframe src="https://player.twitch.tv/?channel=" + channel + "&parent=" + window.location.hostname + "&autoplay=" + autoplay + "&muted=" + muted + "&time=" + time + "s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+		</div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
+	</body>
+</html>
