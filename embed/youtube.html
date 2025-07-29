@@ -7,12 +7,13 @@
 </head>    
 <body>
     <div>
-        <h2 id="InfoText"> </h2>
+        <h2 id="InfoText"></h2>
         <iframe id="iframeYt" src="about:blank" width="100%" style="border-radius: 0px; border: none; aspect-ratio: 16/9; min-height: 250px;" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </div>
     <script>
         function IdError() {
             document.getElementById('InfoText').innerHTML = 'Error please see the console';
+            document.getElementById('InfoText').style.fontFamily = 'consolas';
             console.error('The id is not specified');
             console.warn('Use ?id=:vidId');
             document.getElementById('iframeYt').style.display = 'none';
