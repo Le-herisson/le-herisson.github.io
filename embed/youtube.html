@@ -15,6 +15,7 @@
             document.getElementById('InfoText').innerHTML = 'Error please see the console';
             console.error('The id is not specified');
             console.warn('Use ?id=:vidId');
+            document.getElementById('iframeYt').style.display = 'none';
             return "ScMzIvxBSi4";
         }
         const params = new URLSearchParams(window.location.search);
