@@ -7,18 +7,21 @@
 </head>
 <body>
     <div>
+        <h3 id="InfoText"></h3>
         <iframe id="iframeYt" src="about:blank" title="Video player" width="100%" style="border-radius: 0px; border: none; aspect-ratio: 16/9; min-height: 250px;" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </div>
     <script>
         function IdError() {
-            alert('Error please see the console');
+            document.getElementById('InfoText').innerHTML = 'Error please see the console';
+            document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
             console.error('The id is not specified');
             console.warn('Use ?id=:vidId');
-            return "ScMzIvxBSi4";
+            document.getElementById('iframeYt').style.display = 'none';
+            return "";
         }
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id") == null ? IdError() : params.get("id");
-        const title = id == "ScMzIvxBSi4" ? "PlaceHolder video" : params.get("title") == null ? id : params.get("title");
+        const title = params.get("title") == null ? id : params.get("title");
         const link = `https://embed-player.com/video/?source=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D${id}&title=${title}&preload=none`;
 
         console.debug(`id = ${id}`);
