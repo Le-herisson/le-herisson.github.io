@@ -10,7 +10,8 @@
 	</div>
         <script>
 		function ChannelError(){
-			alert('Error please see the console');
+			document.getElementById('InfoText').innerHTML = 'Error please see the console';
+            document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
 			console.error('The channel is not specified');
 			console.warn('Use ?channel=:channel');
 			return "example";
