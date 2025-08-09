@@ -14,8 +14,8 @@
             document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
 			console.error('The channel is not specified');
 			console.warn('Use ?channel=:channel');
-			document.getElementById('iframeYt').style.display = 'none';
-			return "example";
+			document.getElementById('iframeTwitch').style.display = 'none';
+			return "";
 		}
 		const hn = window.location.hostname;		
 		const params = new URLSearchParams(window.location.search);
