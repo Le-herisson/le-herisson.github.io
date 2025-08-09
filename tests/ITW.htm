@@ -20,14 +20,12 @@
 		const channel = params.get("channel") == null ? ChannelError() : params.get("channel");
 		const autoplay = params.get("autoplay") == null ? false : params.get("autoplay");
 		const muted = params.get("muted") == null ? true : params.get("muted");
-		//time = params.get("time") == null ? 0 : params.get("time");
 	
 		console.debug("channel = " + channel);
 		console.debug("autoplay = " + autoplay);
 		console.debug("muted = " + muted);
-		//console.debug("time = " + time);
 	
-		const link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}&autoplay=${autoplay}&muted=${muted}`; //&time=${time}s
+		const link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}&autoplay=${autoplay}&muted=${muted}`;
 		console.debug(link);
 		document.getElementById('iframeTwitch').src = link;
 	</script>
