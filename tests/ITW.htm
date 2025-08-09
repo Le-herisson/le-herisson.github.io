@@ -3,21 +3,18 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="color-scheme" content="dark">
-	<title>TW integration</title>
+	<title>integration TW</title>
 </head>
 <body>
 	<div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;">
-		<h3 id="InfoText"></h3>
 		<iframe id="iframeTwitch" src="about:blank" height="100%" width="100%" frameborder="0" allowfullscreen></iframe>
 	</div>
         <script>
 		function ChannelError(){
-			document.getElementById('InfoText').innerHTML = 'Error please see the console';
-            document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
+			alert('Error please see the console');
 			console.error('The channel is not specified');
 			console.warn('Use ?channel=:channel');
-			document.getElementById('iframeTwitch').style.display = 'none';
-			return "";
+			return "example";
 		}
 		const hn = window.location.hostname;		
 		const params = new URLSearchParams(window.location.search);
