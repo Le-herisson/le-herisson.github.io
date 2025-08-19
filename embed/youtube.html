@@ -14,25 +14,38 @@
     </style>
     <div>
         <h3 id="InfoText"></h3>
-        <iframe id="iframeYt" src="about:blank" width="100%" style="border-radius: 0px; border: none; aspect-ratio: 16/9; min-height: 250px;" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="iframeYt" src="about:blank" width="100%" style="border-radius: 0px; border: none; aspect-ratio: 16/9; min-height: 250px;" allowfullscreen></iframe>
     </div>
     <script>
-        function IdError() {
+        function IdError(r) {
             document.getElementById('InfoText').innerHTML = 'Error please see the console';
             document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
-            console.error('The id is not specified');
-            console.warn('Use ?id=:vidId');
+            console.debug(r)
+            console.error(r == 'missing' ? 'The id is not specified' : r == 'invalid' ? 'The id specified is invalid' : 'Error');
+            console.warn('Use ?id=:vidId like : /[a-zA-Z0-9-_]{11}/g');
             document.getElementById('iframeYt').style.display = 'none';
             return "";
         }
         const params = new URLSearchParams(window.location.search);
-        const id = params.get("id") == null ? IdError() : params.get("id");
+        if (params.get('id') == null) {
+            IdError('missing');
+        } else {
+            const id = params.get("id");
+            console.debug("id = " + id);
 
-        console.debug("id = " + id);
+            if (id.slice(0, 11) != id) {
+                IdError('invalidLenght')
+            }
 
-        const link = `https://www.yout-ube.com/embed/${id}?autoplay=1&iv_load_policy=3&loop=1&start=0`;
-        console.debug(link);
-        document.getElementById('iframeYt').src = link;
+            let pattern = /[a-zA-Z0-9-_]{11}/;
+            if (pattern.test(id)) {
+                const link = `https://www.yout-ube.com/embed/${id}?autoplay=1&iv_load_policy=3&loop=1&start=0`;
+                console.debug(link);
+                document.getElementById('iframeYt').src = link;
+            } else {
+                IdError('invalid');
+            }
+        }
     </script>
 </body>
 </html>
