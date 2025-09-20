@@ -1,0 +1,113 @@
+[
+    {
+        "category.main":
+            [
+                {
+                    "id": 0,
+                    "url": "https://minecraft.wiki",
+                    "title": "The Minecraft Wiki",
+                    "desc": "Minecraft LIVE returns on September 27 at 17:00 UTC! Tune in for news on unannounced game drops, insight from developers, and more."
+                },
+                {
+                    "id": 1,
+                    "url": "https://chunkbase.com",
+                    "title": "Chunk Base - Minecraft Apps, Mods and Tutorials",
+                    "desc": "A collection of apps to help you find the best Minecraft seeds, and locate biomes and structures in your world on an interactive map."
+                },
+                {
+                    "id": 2,
+                    "url": "https://minecraft.tools",
+                    "title": "Minecraft Tools: Tools for Minecraft",
+                    "desc": "Tools for Minecraft with crafting list, flat world, colored armor crafting, firework crafting, etc."
+                },
+                {
+                    "id": 3,
+                    "url": "https://chunker.app",
+                    "title": "https://chunker.app",
+                    "desc": "Chunker is a free and open-source tool that can convert Minecraft worlds between different versions and platforms (Java and Bedrock). It has a simple GUI and a command line interface."
+                },
+                {
+                    "id": 4,
+                    "url": "https://namemc.com",
+                    "title": "NameMC: Minecraft Names & Skins",
+                    "desc": "Check the availability of Minecraft names, view the name history of Minecraft accounts, download the latest trending Minecraft skins, and much more! Check out our collection of the best Minecraft skins for PC and Mobile! Download the skin that suits you best!"
+                },
+                {
+                    "id": 5,
+                    "url": "https://www.minecraftskins.com/skin-editor/",
+                    "title": "Minecraft Skin Editor",
+                    "desc": "Make your own Minecraft skins from scratch or edit existing skins on your browser and share them with the rest."
+                },
+                {
+                    "id": 6,
+                    "url": "https://eszesbalint.github.io/bdstudio/editor",
+                    "title": "Minecraft Block Display Studio",
+                    "desc": "3D editor and command generator for block display entities"
+                },
+                {
+                    "id": 7,
+                    "url": "https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortBy=relevancy",
+                    "title": "Minecraft Search - CurseForge",
+                    "desc": "Discover the world's largest mod repository on CurseForge, serving popular games and communities like Minecraft, WoW, The Sims 4, and more."
+                },
+                {
+                    "id": 8,
+                    "url": "https://blockmatic.trafficlunar.net/",
+                    "title": "blockmatic — minecraft pixel art editor",
+                    "desc": "Online pixel art editor for Minecraft (with support for images!)"
+                }
+            ],
+        "category.thedestruc7i0n":
+            [
+                {
+                    "id": 0,
+                    "url": "https://crafting.thedestruc7i0n.ca",
+                    "title": "Crafting",
+                    "desc": "Crafting recipes generator for Minecraft"
+                },
+                {
+                    "id": 1,
+                    "url": "https://advancements.thedestruc7i0n.ca",
+                    "title": "Advancements",
+                    "desc": "Minecraft advancements generator"
+                }
+            ],
+        "category.computer_craft":
+            [
+                {
+                    "id": 0,
+                    "url": "https://music.madefor.cc/",
+                    "title": "ComputerCraft Music Converter",
+                    "desc": "DFPWM audio converter for Computronics and CC: Tweaked"
+                },
+                {
+                    "id": 1,
+                    "url": "https://tweaked.cc/",
+                    "title": "CC: Tweaked",
+                    "desc": "Documentation index for CC: Tweaked"
+                },
+                {
+                    "id": 2,
+                    "url": "https://www.computercraft.info/wiki",
+                    "title": "Computercraft Wiki",
+                    "desc": "502 Bad Gateaway;Host Error"
+                }
+            ],
+        "category.mcstacker":
+            [
+                
+                {
+                    "id": 0,
+                    "url": "https://mcstacker.net",
+                    "title": "MCStacker for Minecraft 1.21.6 / 1.21.7",
+                    "desc": "This website will help you generate many commands for Minecraft Java Edition. The syntax for commands containing items changed significantly in recent versions. Fortuanately, MCStacker can convert most of your 1.20.4 style commands and output them in the new format."
+                },
+                {
+                    "id": 1,
+                    "url": "https://mcstacker.net/murals/",
+                    "title": "Minecraft Pixel Art Mural Generator",
+                    "desc": "This generator lets you import png, jpg and gif files and converts them into commands which create the image as a giant pixel art mural on your Minecraft map. All this can be done without mods."
+                }
+            ]
+    }
+]
