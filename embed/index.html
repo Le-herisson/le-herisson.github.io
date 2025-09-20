@@ -14,25 +14,101 @@
 		  in your browser address bar.
     </p>
   </noscript>
-	<a id="linkHomepage" href="https://le-herisson.github.io/">Home</a>
+  <script type="text/javascript">
+    var currentEnabled = null;
+    function enableElement(elem) {
+      if (currentEnabled) {
+        currentEnabled.disabled = true;
+      }
+      elem.disabled = false;
+      currentEnabled = elem;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('Go_button').addEventListener('click', function () {
+        //alert('Go_button clicked!');
+
+        sLinkIo = document.getElementById("sLinkI");
+        bLinkIo = document.getElementById("bLinkI");
+        vIdIo = document.getElementById("vIdI");
+
+        if (!sLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(sLinkIo.value, "short")}`); sLinkIo.value = get_video_id(sLinkIo.value, "short"); }
+        if (!bLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(bLinkIo.value, "long")}`); bLinkIo.value = get_video_id(bLinkIo.value, "long"); }
+        if (!vIdIo.disabled) { console.debug(`calulated id : ${get_video_id(vIdIo.value, "id")}`); vIdIo.value = get_video_id(vIdIo.value, "id"); }
+
+        document.getElementById("VidForm").submit();
+      });
+      document.getElementById('Rst_button').addEventListener('click', function () {
+        if(confirm('Reset form ?')) {
+          document.getElementById("VidForm").reset();
+        }
+      });
+    });
+
+    function get_video_id(input, type) {
+      switch (type) {
+        case "short":
+          return input.match(/https\:\/\/youtu\.be\/([a-zA-Z0-9-_]{11})/)[1];
+        
+        case "long":
+          return input.match(/(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=))([a-zA-Z0-9-_]{11})/)[1];
+
+        case "id":
+          return input.match(/([a-zA-Z0-9-_]{11})/g)[0];
+      
+        default:
+          throw new Error("Error Invalid youtube link !");
+      }
+       
+    }
+  </script>
+	<a id="linkHomepage" href="../">Home</a>
   <hr></hr>
   <h2>YouTube videos without ads :</h2>
-  <dl>
-    <dt>Video</dt>
-    <dd>[WIP] Link (small) :  <input type="url" id="videoLinkS" minlength="28" maxlength="39" size="28" /></dd>
-    <dd>[WIP] Link (big) :  <input type="url" id="videoLinkB" minlength="39" size="39" /></dd>
-    <dd>[WIP] Id :  <input type="text" id="videoId" minlength="11" maxlength="11" size="11" /></dd>
-    <dt>Options</dt>
-    <dd>
-      [WIP] Video player
-      <select id="VideoPlayers" required>
-		    <option disabled="disabled">Please select an option</option>
-        <option value="oytp">Official YouTube Player</option>
-        <option value="ytnc">YT nocookies</option>
-        <option value="ep">Embed player</option>
-      </select>
-    </dd>
-    <dd>[WIP] darkmode : <input type="checkbox" name="dm"></dd>
-  </dl>
+  <form id="VidForm" action="./youtube.html" method="get">
+    <dl>
+      <dt>Video</dt>
+      <fieldset>
+        <dd>
+          <!-- <strong style="color:red;">[WIP]</strong> -->
+          <input type="radio" id="sLinkRb" name="VideoRb" value="sLink" onclick="enableElement(this.form.elements['sLinkI']);" />
+          <label for="sLinkRb">Link (small) : </label>
+          <input disabled="disabled" type="url" id="sLinkI" name="vId" minlength="28" maxlength="39" size="28" />
+        </dd>
+        <dd>
+          <!-- <strong style="color:red;">[WIP]</strong> -->
+          <input type="radio" id="bLinkRb" name="VideoRb" value="bLink" onclick="enableElement(this.form.elements['bLinkI']);" />
+          <label for="bLinkRb">Link (big) : </label>
+          <input disabled="disabled" type="url" id="bLinkI" name="vId" minlength="39" size="39" />
+        </dd>
+        <dd>
+          <!-- <strong style="color:red;">[WIP]</strong> -->
+          <input type="radio" id="vIdRb" name="VideoRb" value="vId" onclick="enableElement(this.form.elements['vIdI']);" />
+          <label for="vIdRb">Id : </label>
+          <input disabled="disabled" type="text" id="vIdI" name="vId" minlength="11" maxlength="11" size="11" />
+        </dd>
+      </fieldset>
+      <dt>Options</dt>
+      <fieldset>
+        <dd>
+          <strong style="color:red;">[WIP]</strong>
+          <label for="VideoPlayers">Video player </label>
+          <select id="VideoPlayers" name="VP" required>
+            <option disabled="disabled">Please select an option</option>
+            <option id="VP_OYTP" value="OYTP" name="VP_OYTP">Official YouTube Player</option>
+            <option id="VP_YTNC" value="YTNC" name="VP_YTNC">YT nocookies</option>
+            <option id="VP_EP" value="EP" name="VP_EP">Embed player</option>
+          </select>
+        </dd>
+        <dd>
+          <strong style="color:red;">[WIP]</strong>
+          <label for="option_dm_cb">darkmode :</label>
+          <input id="option_dm_cb" type="checkbox" name="dm" checked disabled>
+        </dd>
+      </fieldset>
+    </dl>
+    <button id="Go_button" type="button">Go</button>
+    <button id="Rst_button" type="button">Reset</button>
+  </form>
 </body>
 </html>
