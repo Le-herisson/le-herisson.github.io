@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<title>le-herisson.github.io - Home</title>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="color-scheme" content="dark">
-	<meta favicon="favicon.ico">
+    <title>le-herisson.github.io - Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta favicon="favicon.ico">
   </head>
   <body>
     <noscript>
@@ -14,13 +14,19 @@
         <a href="chrome://settings/content/siteDetails?site=https%3A%2F%2Fle-herisson.github.io%2F">this link</a>.
       </p>
     </noscript>
-    <a id="linkHomepage" href="./">Home</a>
-    <p>projects :</p>
+    <style>
+      .redlink {
+        color: red;
+      }
+    </style>
+    <a title="${window.location.href}" id="linkHomepage" href="javascript:void(0);" onclick="javascript:alert('You are alredy at the home page');">Home</a>
+    <hr></hr>
+    <h2>Pages :</h2>
     <ul>
-      <li> <a href="./iframe/">Iframe</a></li>
-      <li> <a href="./MRE/">Matrix Rain Effect</a></li>
-      <li> <a href="./example/">{examplePage.link.name}</a></li>
-      <li> <a href="./embed/">{embedContent.link.name}</a></li>
+      <li><a class="link" title="Go to ./iframe/" id="link_Iframe" href="./iframe/">Iframe</a></li>
+      <li><a class="link" title="Go to ./MRE/" id="link_MRE" href="./MRE/">Matrix Rain Effect</a></li>
+      <li><a class="link redlink" title="Go to ./example" id="link_example" href="./example/">{examplePage.link.name}</a></li>
+      <li><a class="link" title="Go to ./embed/" id="link_embed" href="./embed/">{embedContent.link.name}</a></li>
     </ul>
   </body>
 </html>
