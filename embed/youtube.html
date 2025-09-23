@@ -22,11 +22,14 @@
             document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
             console.debug(r)
             console.error(r == 'missing' ? 'The id is not specified' : r == 'invalid' ? 'The id specified is invalid' : 'Error');
-            console.warn('Use ?id=:vidId like : /[a-zA-Z0-9-_]{11}/g');
+            console.warn('Use ?vId=:vidId like : /[a-zA-Z0-9-_]{11}/g');
             document.getElementById('iframeYt').style.display = 'none';
-            return "";
         }
         const params = new URLSearchParams(window.location.search);
+        if (params.has('vId')) {
+            params.append('id', params.get('vId'));
+            params.delete('vId');
+        }
         if (params.get('id') == null) {
             IdError('missing');
         } else {
