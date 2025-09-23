@@ -55,6 +55,12 @@
                     "url": "https://blockmatic.trafficlunar.net/",
                     "title": "blockmatic — minecraft pixel art editor",
                     "desc": "Online pixel art editor for Minecraft (with support for images!)"
+                },
+                {
+                    "id": 9,
+                    "url": "https://cubical.xyz/",
+                    "title": "cubical.xyz | Minecraft 3D Schematic Tool - Build | Edit | Convert",
+                    "desc": "Easily create, edit and share your Minecraft builds for free, right from your browser!"
                 }
             ],
         "category.thedestruc7i0n":
