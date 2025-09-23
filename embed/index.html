@@ -22,29 +22,6 @@
       currentEnabled = elem;
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('Go_button').addEventListener('click', function () {
-        sLinkIo = document.getElementById("sLinkI");
-        bLinkIo = document.getElementById("bLinkI");
-        vIdIo = document.getElementById("vIdI");
-
-        if (sLinkIo.disabled && bLinkIo.disabled && vIdIo.disabled) {
-          alert("Error :\nPlease check an option\nand fill all the requireds fields!")
-        } else {
-          if (!sLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(sLinkIo.value, "short")}`); sLinkIo.value = get_video_id(sLinkIo.value, "short"); }
-          if (!bLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(bLinkIo.value, "long")}`); bLinkIo.value = get_video_id(bLinkIo.value, "long"); }
-          if (!vIdIo.disabled) { console.debug(`calulated id : ${get_video_id(vIdIo.value, "id")}`); vIdIo.value = get_video_id(vIdIo.value, "id"); }
-
-          document.getElementById("VidForm").submit();
-        }
-      });
-      document.getElementById('Rst_button').addEventListener('click', function () {
-        if(confirm('Reset form ?')) {
-          document.getElementById("VidForm").reset();
-        }
-      });
-    });
-
     function get_video_id(input, type) {
       switch (type) {
         case "short":
@@ -58,8 +35,40 @@
       
         default:
           throw new Error("Error Invalid youtube link !");
-      }
-       
+      }       
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('Go_button').addEventListener('click', async function () {
+        sLinkIo = document.getElementById("sLinkI");
+        bLinkIo = document.getElementById("bLinkI");
+        vIdIo = document.getElementById("vIdI");
+
+        if (sLinkIo.disabled && bLinkIo.disabled && vIdIo.disabled) {
+          alert("Error :\nPlease check an option\nand fill all the requireds fields!")
+        } else {
+          if (!sLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(sLinkIo.value, "short")}`); sLinkIo.value = get_video_id(sLinkIo.value, "short"); }
+          if (!bLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(bLinkIo.value, "long")}`); bLinkIo.value = get_video_id(bLinkIo.value, "long"); }
+          if (!vIdIo.disabled) { console.debug(`calulated id : ${get_video_id(vIdIo.value, "id")}`); vIdIo.value = get_video_id(vIdIo.value, "id"); }
+
+          document.getElementById("VidForm").action = await getLink();
+          document.getElementById("VidForm").submit();
+        }
+      });
+      document.getElementById('Rst_button').addEventListener('click', function () {
+        if(confirm('Reset form ?')) {
+          document.getElementById("VidForm").reset();
+        }
+      });
+    });
+
+    async function getLink() {
+      await fetch("../Api/conf.json")
+              .then(function(response) { return response.json(); })
+              .then(function(resJson) { res = resJson; });
+      env = res[2].env;
+      console.debug(env);
+      return(env == "production" ? "./youtube/index.html" : "./youtube");
     }
   </script>
   <style>
@@ -86,7 +95,7 @@
   </div>
   <hr></hr>
   <h2>YouTube videos without ads :</h2>
-  <form id="VidForm" action="./youtube.html" method="get">
+  <form id="VidForm" method="get">
     <dl>
       <dt>Video</dt>
       <fieldset>
