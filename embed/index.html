@@ -65,6 +65,16 @@
           document.getElementById('sLinkI').focus();
         }
   	  });
+      document.getElementById('bLinkRb').addEventListener('change', function () {
+	  	  if (this.checked) {
+          document.getElementById('bLinkI').focus();
+        }
+  	  });
+      document.getElementById('vIdRb').addEventListener('change', function () {
+	  	  if (this.checked) {
+          document.getElementById('vIdI').focus();
+        }
+  	  });
     });
 
     async function getLink() {
