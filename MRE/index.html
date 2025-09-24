@@ -12,11 +12,7 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-          if(navigator.userAgentData.mobile){
-            document.addEventListener("onfullscreenchange", function () {
-              location.reload();
-            });
-          }else{
+          if(!navigator.userAgentData.mobile){
             document.addEventListener("onresize", function () {
               location.reload();
             });
@@ -25,5 +21,6 @@
     </script>
 </body>
 </html>
+
 
 
