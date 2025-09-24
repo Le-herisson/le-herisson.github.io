@@ -5,11 +5,25 @@
     <meta name="color-scheme" content="dark">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body onfullscreenchange="location.reload();">
+<body>
     <div class="matrix-container">
       <canvas id="matrix"></canvas>
     </div>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          if(navigator.userAgentData.mobile){
+            document.addEventListener("onfullscreenchange", function () {
+              location.reload();
+            });
+          }else{
+            document.addEventListener("onresize", function () {
+              location.reload();
+            });
+          }
+        });
+    </script>
 </body>
 </html>
+
 
