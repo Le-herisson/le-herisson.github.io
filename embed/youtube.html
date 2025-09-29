@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
     <title>Youtube Player</title>
 </head>    
 <body>
-    <style>
-        :root {
-            background-color: #101010;
-        }
-    </style>
     <div>
         <h3 id="InfoText"></h3>
         <iframe id="iframeYt" src="about:blank" width="100%" style="border-radius: 0px; border: none; aspect-ratio: 16/9; min-height: 250px;" allowfullscreen></iframe>
@@ -26,6 +20,7 @@
             document.getElementById('iframeYt').style.display = 'none';
         }
         const params = new URLSearchParams(window.location.search);
+        if (params.has('dm') && params.get('dm') == "on") { document.body.style.backgroundColor = "#101010"; }
         if (params.has('vId')) {
             params.append('id', params.get('vId'));
             params.delete('vId');
