@@ -1,0 +1,26 @@
+div.topbar {
+    display: flex;
+    justify-content: space-between;
+}
+a.link_homepage {
+    justify-content: flex-start;
+}
+a.link_back {
+    justify-content: flex-end;
+}
+.wip {
+    cursor: help;
+    color: red;
+}
+button {
+    cursor: pointer;
+}
+.rst:hover {
+    color: darkred;
+}
+.redlink {
+    color: red;
+}
+a {
+    color: lightblue;
+}

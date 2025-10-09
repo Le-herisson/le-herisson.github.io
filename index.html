@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>le-herisson.github.io - Home</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
-    <meta favicon="favicon.ico">
-  </head>
-  <body>
-    <noscript>
-      <p>
-        This site is best viewed with Javascript please use 
-        <a href="chrome://settings/content/siteDetails?site=https%3A%2F%2Fle-herisson.github.io%2F">this link</a>.
-      </p>
-    </noscript>
-    <style>
-      .redlink {
-        color: red;
-      }
-    </style>
-    <a title="${window.location.href}" id="linkHomepage" href="javascript:void(0);" onclick="javascript:alert('You are alredy at the home page');">Home</a>
-    <hr></hr>
-    <h2>Pages :</h2>
-    <ul>
-      <li><a class="link" title="Go to ./iframe/" id="link_Iframe" href="./iframe/">Iframe</a></li>
-      <li><a class="link" title="Go to ./MRE/" id="link_MRE" href="./MRE/">Matrix Rain Effect</a></li>
-      <li><a class="link redlink" title="Go to ./example" id="link_example" href="./example/">{examplePage.link.name}</a></li>
-      <li><a class="link" title="Go to ./embed/" id="link_embed" href="./embed/">{embedContent.link.name}</a></li>
-    </ul>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" type="text/css" href="src/style.css">
+  <title>le-herisson.github.io - Home</title>
+  <meta favicon="favicon.ico">
+</head>
+<body>
+  <noscript>
+    <p>
+      This site is best viewed with Javascript please use "chrome://settings/content/siteDetails?site=https%3A%2F%2Fle-herisson.github.io%2F".
+    </p>
+  </noscript>
+  <script src="src/script.js"></script>
+  <div class="topbar">
+    <a title="${window.location.href}" class="link" id="linkHomepage" href="javascript:void(0);" onclick="javascript:alert('You are alredy at the home page');">Home</a>
+    <a title="Go back in browser history" class="link" id="back" href="javascript:history.back();">Back</a>
+  </div>
+  <hr></hr>
+  <h2>Pages :</h2>
+  <ul>
+    <li><a class="link" title="Go to ./iframe/" id="link_Iframe" href="./iframe/">Iframe</a></li>
+    <li><a class="link" title="Go to ./MRE/" id="link_MRE" href="./MRE/">Matrix Rain Effect</a></li>
+    <li><a class="link redlink" title="Go to ./example" id="link_example" href="./example/">{examplePage.link.name}</a></li>
+    <li><a class="link" title="Go to ./embed/" id="link_embed" href="./embed/"><div class="">
+    <embed src="" type=""></a></li>
+  </ul>
+</body>
 </html>
