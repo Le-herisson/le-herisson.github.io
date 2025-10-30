@@ -12,15 +12,18 @@
     </div>
     <script>
         function IdError(r) {
-            document.getElementById('InfoText').innerHTML = 'Error please see the console';
-            document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
+            infoText = document.getElementById('InfoText')
+            infoText.innerHTML = 'Error please see the console';
+            infoText.style.fontFamily = 'Consolas, monospace';
+            infoText.style.backgroundColor = 'Red'
             console.debug(r)
             console.error(r == 'missing' ? 'The id is not specified' : r == 'invalid' ? 'The id specified is invalid' : 'Error');
-            console.warn('Use ?vId=:vidId like : /[a-zA-Z0-9-_]{11}/g');
-            document.getElementById('iframeYt').style.display = 'none';
+            console.warn("Use ?vId=:vidId like : /[a-zA-Z0-9-_]{11}/g");
+            document.getElementById('iframeYt').remove();
+            document.title='Youtube Player - Invalid vId...';
         }
         const params = new URLSearchParams(window.location.search);
-        if (params.has('dm') && params.get('dm') == "on") { document.body.style.backgroundColor = "#101010"; }
+        if (params.has('dm') && params.get('dm') == 'on') { document.body.style.backgroundColor="#101010"; }
         if (params.has('vId')) {
             params.append('id', params.get('vId'));
             params.delete('vId');
@@ -28,20 +31,22 @@
         if (params.get('id') == null) {
             IdError('missing');
         } else {
-            const id = params.get("id");
+            const id = params.get('id');
             console.debug("id = " + id);
 
             if (id.slice(0, 11) != id) {
                 IdError('invalidLenght')
-            }
-
-            let pattern = /[a-zA-Z0-9-_]{11}/;
-            if (pattern.test(id)) {
-                const link = `https://www.yout-ube.com/embed/${id}?autoplay=1&iv_load_policy=3&loop=1&start=0`;
-                console.debug(link);
-                document.getElementById('iframeYt').src = link;
             } else {
-                IdError('invalid');
+                let pattern = /[a-zA-Z0-9-_]{11}/;
+                if (pattern.test(id)) {
+                    fetch(`https://youtube.com/oembed?url=https://youtu.be/${id}`).then(res=>res.json())
+                        .then((res) => {
+                            document.title=`${res['title'].slice(0, 29)}... - ${document.title}`;
+                            document.getElementById('iframeYt').src = `https://www.yout-ube.com/embed/${id}?autoplay=1&iv_load_policy=3&loop=1&start=0`;
+                        }).catch(() => { IdError('invalid'); });
+                } else {
+                    IdError('invalid');
+                }
             }
         }
     </script>
