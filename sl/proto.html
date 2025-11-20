@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>Protocol Handler</title>
+</head>
+<body>
+    <div id="box"> </div>
+    <noscript>
+        <h1>To use this webpage please enable JavaScript.</h1>
+    </noscript>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if(params.has('r')&&params.get('r')!==""){
+            if(params.get('r').startsWith('web+lhghytwoa:')){
+                setTimeout(()=>{window.location.href=`./?url=https://yout-ube.com/watch?v=${decodeURIComponent(params.get('r')).replace("web+lhghytwoa:", "")}`},500);
+            }else{
+                document.getElementById("box").innerText="The parameter is invalid";
+            }
+        }
+    </script>    
+</body>
+</html>

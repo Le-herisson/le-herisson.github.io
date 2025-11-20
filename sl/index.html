@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>url redirector</title>
-    </head>
-    <body>
-        <div id="box"> </div>
-        <noscript>
-            <h1>To use this webpage please enable JavaScript.</h1>
-        </noscript>
-        <script>
-            const params = new URLSearchParams(window.location.search);
-            if(params.has('url')&&params.get('url')!==""){
-                if(params.get('url').startsWith('http')){
-                    setTimeout(()=>{window.location.href=params.get('url');},250);
-                }else{
-                    document.getElementById("box").innerText="The url parameter is invalid";
-                }
+<head>
+    <meta charset='utf-8'>
+    <title>url redirector</title>
+    <meta name="color-scheme" content="dark">
+</head>
+<body>
+    <div id="box"> </div>
+    <noscript>
+        <h1>To use this webpage please enable JavaScript.</h1>
+    </noscript>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if(params.has('url')&&params.get('url')!==""){
+            if(params.get('url').startsWith('http')){
+                setTimeout(()=>{window.location.href=params.get('url');},250);
+            }else{
+                document.getElementById("box").innerText="The url parameter is invalid";
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>
