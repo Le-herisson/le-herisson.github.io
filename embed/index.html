@@ -37,7 +37,7 @@
           if (!bLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(bLinkIo.value, "long")}`); bLinkIo.value = get_video_id(bLinkIo.value, "long"); }
           if (!vIdIo.disabled) { console.debug(`calulated id : ${get_video_id(vIdIo.value, "id")}`); vIdIo.value = get_video_id(vIdIo.value, "id"); }
 
-          document.getElementById("VidForm").action = await getLink();
+          document.getElementById("VidForm").action = "/youtube"
           document.getElementById("VidForm").submit();
         }
       });
@@ -46,15 +46,6 @@
       document.getElementById('bLinkRb').addEventListener('change', function () { if (this.checked) { document.getElementById('bLinkI').focus(); } });
       document.getElementById('vIdRb').addEventListener('change', function () { if (this.checked) { document.getElementById('vIdI').focus(); } });
     });
-
-    async function getLink() {
-      await fetch("../Api/conf.json")
-              .then(function(response) { return response.json(); })
-              .then(function(resJson) { res = resJson; });
-      env = res[2].env;
-      console.debug(env);
-      return(env == "production" ? "./youtube/index.html" : "./youtube");
-    }
   </script>
   <style>
     .vRb, .link, label {
@@ -79,7 +70,7 @@
         <dd>
           <input class="vRb" type="radio" id="bLinkRb" name="VideoRb" value="bLink" onclick="enableElement(this.form.elements['bLinkI']);" />
           <label for="bLinkRb">Link (big) : </label>
-          <input disabled type="url" id="bLinkI" name="vId" minlength="39" size="39" />
+          <input disabled type="url" id="bLinkI" name="vId" minlength="39" size="28" />
         </dd>
         <dd>
           <input class="vRb" type="radio" id="vIdRb" name="VideoRb" value="vId" onclick="enableElement(this.form.elements['vIdI']);" />

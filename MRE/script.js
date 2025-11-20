@@ -1,4 +1,4 @@
-const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ~@#|&é'(-è_çà)=}]^\`[{¤$£^¨*µù%!§:/;.,?";
+const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ㅣ~@#|&é'(-è_çà)=}]^\\`[{¤$£^*µù%!§:/;.,?\"";
 const charactersArray = characters.split("");
 
 const fontSize = 16;
