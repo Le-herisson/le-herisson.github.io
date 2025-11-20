@@ -37,7 +37,7 @@
           if (!bLinkIo.disabled) { console.debug(`calulated id : ${get_video_id(bLinkIo.value, "long")}`); bLinkIo.value = get_video_id(bLinkIo.value, "long"); }
           if (!vIdIo.disabled) { console.debug(`calulated id : ${get_video_id(vIdIo.value, "id")}`); vIdIo.value = get_video_id(vIdIo.value, "id"); }
 
-          document.getElementById("VidForm").action = "/youtube"
+          document.getElementById("VidForm").action = "/youtube.html"
           document.getElementById("VidForm").submit();
         }
       });
