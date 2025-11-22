@@ -42,7 +42,7 @@
                     fetch(`https://youtube.com/oembed?url=https://youtu.be/${id}`).then(res=>res.json())
                         .then((res) => {
                             document.title=`${res['title'].slice(0, 29)}... - ${document.title}`;
-                            document.getElementById('iframeYt').src = `https://www.yout-ube.com/embed/${id}?autoplay=1&iv_load_policy=3&loop=1&start=0`;
+                            document.getElementById('iframeYt').src = `https://www.yout-ube.com/embed/${id}?iv_load_policy=3&start=0&cc_load_policy=0&playsinline=0`;
                         }).catch(() => { IdError('invalid'); });
                 } else {
                     IdError('invalid');
