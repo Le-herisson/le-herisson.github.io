@@ -18,7 +18,7 @@
   "shortcuts": [
     {
       "name": "YouTube w/o ads",
-      "short_name": "yt",
+      "short_name": "ytwoa",
       "description": "YouTube without ads",
       "url": "/embed?source=pwa",
       "icons": [{ "src": "/src/YTNC.ico", "sizes": "256x256" }]
