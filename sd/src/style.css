@@ -5,7 +5,7 @@ a, label{display: block;}
 button{
     width: 75px;
     cursor: pointer;
-    border-radius: 0;
+    border-radius: 100;
 }
 button>label{cursor: pointer;}
 
