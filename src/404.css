@@ -1,0 +1,21 @@
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-size: xx-large;
+    color: darkgreen;
+    background-color: black;
+}
+div.topbar {
+    display: flex;
+    justify-content: space-between;
+}
+a.link_homepage {
+    justify-content: flex-start;
+}
+a.link_back {
+    justify-content: flex-end;
+}
