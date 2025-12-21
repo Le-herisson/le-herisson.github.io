@@ -52,7 +52,7 @@ async function process(sl) {
             let itG=document.createElement('a');
             let g=await get(`game/${sl[i]}`);
             itS.textContent=sl[i];
-            itS.href=navigator.userAgentData.mobile?'javascript:alert("click")':`https://le-herisson.github.io/tests/ITW.htm?channel=${sl[i]}&mute=0`;
+            itS.href=navigator.userAgentData.mobile==true?'javascript:alert("click")':`https://le-herisson.github.io/tests/ITW.htm?channel=${sl[i]}&mute=0`;
             itS.style='display: inline';
             itS.target="_blank";
             itS.rel="noopener noreferrer";
@@ -60,7 +60,7 @@ async function process(sl) {
             it.textContent=`: ✅ (${u}) playing: `;
             it.style='display: inline';
             itG.textContent=g;
-            itG.href=`https://www.twitch.tv/directory/category/${g.toLowerCase().replace(' ', '-')}`;
+            //itG.href=`https://www.twitch.tv/directory/category/${g.toLowerCase().replace(' ', '-')}`;
             itG.style='display: inline'
             itG.target="_blank";
             itG.rel="noopener noreferrer";
