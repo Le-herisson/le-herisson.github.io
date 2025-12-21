@@ -52,10 +52,11 @@ async function process(sl) {
             let itG=document.createElement('a');
             let g=await get(`game/${sl[i]}`);
             itS.textContent=sl[i];
-            itS.href=`https://le-herisson.github.io/tests/ITW.htm?channel=${sl[i]}&mute=0`;
+            itS.href=navigator.userAgentData.mobile?'javascript:alert("click")':`https://le-herisson.github.io/tests/ITW.htm?channel=${sl[i]}&mute=0`;
             itS.style='display: inline';
             itS.target="_blank";
             itS.rel="noopener noreferrer";
+            itS.title=await get(`title/${sl[i]}`);
             it.textContent=`: ✅ (${u}) playing: `;
             it.style='display: inline';
             itG.textContent=g;
