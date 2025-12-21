@@ -1,9 +1,10 @@
 let lastRc;
+const mobile=navigator.userAgentData.mobile;
 
-document.oncontextmenu = rightClick;
+if (mobile) {document.onclick = rightClick;} else {document.oncontextmenu = rightClick;}
 
 document.addEventListener('click', (e)=>{
-    hideMenu();
+    if(!e.target.id=='contextMenu') {hideMenu();}
     switch (e.target.id) {
         case "openChannel":
             open(`https://twitch.tv/${lastRc}`);
@@ -20,15 +21,15 @@ document.addEventListener('click', (e)=>{
         default:
             break;
     }
+    if(!mobile) {hideMenu();}
 });
 
 function hideMenu() {document.getElementById("contextMenu").style.display = "none";}
 function rightClick(e) {
-    e.preventDefault();
-
     if (document.getElementById("contextMenu").style.display == "block"){hideMenu();}
     else {
-        if (e.target.href.startsWith('https://le-herisson.github.io/tests/')){
+        if (e.target.className=="pseudo"){
+            e.preventDefault();
             let menu=document.getElementById("contextMenu");
             lastRc=e.target.innerText;
             menu.style.display='block';

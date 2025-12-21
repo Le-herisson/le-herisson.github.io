@@ -1,3 +1,5 @@
+const isMobile=navigator.userAgentData.mobile;
+
 function load() {
     //buttons
     BtnRefresh=document.getElementById('BtnRefresh');
@@ -15,21 +17,12 @@ function load() {
 
     //query search params
     const qsp=new URLSearchParams(window.location.search);
-    try {
-        sl=qsp.getAll('st');
-        return [...sl];
-    }catch{
-        console.error('e');
-        return [];
-    }
+    try {sl=qsp.getAll('st');return [...sl];}catch{console.error('e');return [];}
 }
 async function get(ep) {
     const proxy="https://corsproxy.io/";
     return await fetch(`https://decapi.me/twitch/${ep}`)
-            .then(res=>res.text())
-            .then((res)=>{
-                return res;
-            })
+            .then(res=>res.text()).then((res)=>{return res;})
             .catch((e)=>{console.error(`Error: ${e}`)});
 }
 
@@ -52,15 +45,16 @@ async function process(sl) {
             let itG=document.createElement('a');
             let g=await get(`game/${sl[i]}`);
             itS.textContent=sl[i];
-            itS.href=navigator.userAgentData.mobile==true?'javascript:void()':`https://le-herisson.github.io/tests/ITW.htm?channel=${sl[i]}&mute=0`;
+            itS.classList='pseudo';
+            itS.href=isMobile?'javascript:void(0);':`https://le-herisson.github.io/tests/ITW.htm?channel=${sl[i]}&mute=0`;
             itS.style='display: inline';
-            itS.target="_blank";
+            if(!isMobile){itS.target="_blank";}
             itS.rel="noopener noreferrer";
             itS.title=await get(`title/${sl[i]}`);
             it.textContent=`: ✅ (${u}) playing: `;
             it.style='display: inline';
             itG.textContent=g;
-            //itG.href=`https://www.twitch.tv/directory/category/${g.toLowerCase().replace(' ', '-')}`;
+            itG.href=`https://www.twitch.tv/directory/category/${g.toLowerCase().replaceAll("'",'').replaceAll(' ','-')}`;
             itG.style='display: inline'
             itG.target="_blank";
             itG.rel="noopener noreferrer";
@@ -73,21 +67,21 @@ async function process(sl) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async ()=>{
+document.addEventListener('DOMContentLoaded',async()=>{
     let Sl=load();
     await process(Sl);
 
-    BtnRefresh.addEventListener('click', async ()=>{
+    BtnRefresh.addEventListener('click',async()=>{
         document.querySelectorAll('.DivIt').forEach((i)=>{i.remove();}); //remove all previous elements in class 'DivIt'
         await process(Sl);
     });
-    BtnRefresh.addEventListener('contextmenu', (e)=>{
+    BtnRefresh.addEventListener('contextmenu',(e)=>{
         e.preventDefault();
         alert("contextmenu");
     });
-    BtnAdd.addEventListener('click', ()=>{
-        const p=prompt("Enter a new item: ", "Psedo");
-        if(p===null){alert(`Cannot add '${p}'`);throw Error("p=null", {cause:"'p' should not be null"});} //throw an error if the user choose cancel
+    BtnAdd.addEventListener('click',()=>{
+        const p=prompt("Enter a new item: ","pseudo");
+        if(p===null){alert(`Cannot add '${p}'`);throw Error("p=null",{cause:"'p' should not be null"});} //throw an error if the user choose cancel
         Sl.push(p);
         let DivIt=document.createElement('div');
         let t=document.createElement('a');
@@ -97,10 +91,10 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         DivIt.appendChild(t);
         DivList.appendChild(DivIt);
     });
-    BtnRemove.addEventListener('click', ()=>{
-        const p=prompt("Enter the item to delete: ", "Psedo");
-        if(p===null||Sl.indexOf(p) === -1){alert(`Cannot remove '${p}'`);throw Error("p=null", {cause:"'p' should not be null"});} //throw an error if the user choose cancel or non an item that dosent exist
-        Sl.splice(Sl.indexOf(p), 1);
+    BtnRemove.addEventListener('click',()=>{
+        const p=prompt("Enter the item to delete: ","pseudo");
+        if(p===null||Sl.indexOf(p)===-1){alert(`Cannot remove '${p}'`);throw Error("p=null",{cause:"'p' should not be null"});} //throw an error if the user choose cancel or non an item that dosent exist
+        Sl.splice(Sl.indexOf(p),1);
         BtnRefresh.click(); //refresh
     });
 });
