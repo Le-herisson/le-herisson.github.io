@@ -1,34 +1,41 @@
 {
-  "short_name": "lhgh",
-  "name": "Le-herisson's WebSite",
-  "description": "Le-herisson's WebSite",
-  "icons": [
-    {
-      "src": "favicon.png",
-      "type": "image/png",
-      "sizes": "256x256"
-    }
-  ],
-  "id": "/?source=pwa",
-  "start_url": "/?source=pwa",
-  "display": "standalone",
-  "display_override": ["window-control-overlay", "minimal-ui"],
-  "scope": "/",
-  "theme_color": "#101010",
-  "shortcuts": [
-    {
-      "name": "YouTube w/o ads",
-      "short_name": "ytwoa",
-      "description": "YouTube without ads",
-      "url": "/embed?source=pwa",
-      "icons": [{ "src": "/src/YTNC.ico", "sizes": "256x256" }]
-    },
-    {
-      "name": "Matrix Rain Effect",
-      "short_name": "MRE",
-      "description": "View an effect that look like the matrix rain",
-      "url": "/MRE?source=pwa",
-      "icons": [{ "src": "/src/MRE.ico", "sizes": "256x256" }]
-    }
-  ]
+	"short_name": "lhgh",
+	"name": "Le-herisson's WebSite",
+	"description": "Le-herisson's WebSite",
+	"icons": [
+		{
+		"src": "favicon.png",
+		"type": "image/png",
+		"sizes": "256x256"
+		}
+	],
+	"id": "/?source=pwa",
+	"start_url": "/?source=pwa",
+	"display": "standalone",
+	"display_override": ["window-control-overlay", "minimal-ui"],
+	"scope": "/",
+	"theme_color": "#101010",
+	"shortcuts": [
+		{
+			"name": "YouTube w/o ads",
+			"short_name": "ytwoa",
+			"description": "YouTube without ads",
+			"url": "/embed?source=pwa",
+			"icons": [{ "src": "/src/YTNC.ico", "sizes": "256x256" }]
+		},
+		{
+			"name": "Matrix Rain Effect",
+			"short_name": "MRE",
+			"description": "View an effect that look like the matrix rain",
+			"url": "/MRE?source=pwa",
+			"icons": [{ "src": "/src/MRE.ico", "sizes": "256x256" }]
+		},
+		{
+			"name": "Streamer uptime list",
+			"short_name": "StUL",
+			"description": "A list of twitch streamers that shows uptime, game, title",
+			"url": "/sd?source=pwa",
+			"icons": [{ "src": "favicon.png", "sizes": "256x256" }]
+		}
+	]
 }
