@@ -1,7 +1,7 @@
 let lastRc;
 const mobile=navigator.userAgentData.mobile;
 
-if (mobile) {document.onclick = rightClick;} else {document.oncontextmenu = rightClick;}
+if (mobile) {document.oncontextmenu = rightClick;} else {document.oncontextmenu = rightClick;}
 
 document.addEventListener('click', (e)=>{
     if(!e.target.id=='contextMenu') {hideMenu();}
