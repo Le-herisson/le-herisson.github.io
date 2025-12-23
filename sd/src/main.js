@@ -68,9 +68,6 @@ async function process(sl) {
 }
 
 document.addEventListener('DOMContentLoaded',async()=>{
-    let Sl=load();
-    await process(Sl);
-
     BtnRefresh.addEventListener('click',async()=>{
         document.querySelectorAll('.DivIt').forEach((i)=>{i.remove();}); //remove all previous elements in class 'DivIt'
         await process(Sl);
@@ -97,4 +94,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
         Sl.splice(Sl.indexOf(p),1);
         BtnRefresh.click(); //refresh
     });
+    
+    let Sl=load();
+    await process(Sl);
 });
