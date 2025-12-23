@@ -1,4 +1,4 @@
-const isMobile=navigator.userAgentData.mobile;
+const isMobile=/*navigator.userAgentData.mobile*/false;
 
 function load() {
     //buttons
