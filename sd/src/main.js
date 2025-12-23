@@ -20,9 +20,8 @@ function load() {
     try {sl=qsp.getAll('st');return [...sl];}catch{console.error('e');return [];}
 }
 async function get(ep) {
-    const proxy="https://corsproxy.io/";
     return await fetch(`https://decapi.me/twitch/${ep}`)
-            .then(res=>res.text()).then((res)=>{return res;})
+            .then((res)=>{res.text();}).then((res)=>{return res;})
             .catch((e)=>{console.error(`Error: ${e}`)});
 }
 
@@ -67,8 +66,8 @@ async function process(sl) {
     }
 }
 
-document.addEventListener('DOMContentLoaded',async()=>{
-    BtnRefresh.addEventListener('click',async()=>{
+document.addEventListener('DOMContentLoaded',async ()=>{
+    BtnRefresh.addEventListener('click',async ()=>{
         document.querySelectorAll('.DivIt').forEach((i)=>{i.remove();}); //remove all previous elements in class 'DivIt'
         await process(Sl);
     });
