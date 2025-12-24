@@ -7,10 +7,3 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(confirm(`Go to: ${url} ?`)){location.href=url;}
     });*/
 });
-
-function go(){
-    alert("click");
-    let url=`https://le-herisson.github.io/${document.getElementById('url-field').value}`;
-    alert(`url: ${url}`);
-    if(confirm(`Go to: ${url} ?`)){location.href=url;}
-}

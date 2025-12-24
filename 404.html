@@ -21,5 +21,13 @@
         <p>it seems like you tried to access something that do not exist !</p>
     </div>
     <script src="src/404.js"></script>
+    <script>
+        function go(){
+            alert("click");
+            let url=`https://le-herisson.github.io/${document.getElementById('url-field').value}`;
+            alert(`url: ${url}`);
+            if(confirm(`Go to: ${url} ?`)){location.href=url;}
+        }
+    </script>
 </body>
 </html>
