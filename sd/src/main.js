@@ -21,7 +21,7 @@ function load() {
 }
 async function get(ep) {
     return await fetch(`https://decapi.me/twitch/${ep}`)
-            .then((res)=>{res.text();}).then((res)=>{return res;})
+            .then(res=>res.text()).then((res)=>{return res;})
             .catch((e)=>{console.error(`Error: ${e}`)});
 }
 
