@@ -1,4 +1,4 @@
-const isMobile=/*navigator.userAgentData.mobile*/false;
+const isMobile=RegExp('/Mobi|Android/i').test(window.navigator.userAgent) || window.matchMedia("(max-width: 767px)").matches;
 
 function load() {
     //buttons
@@ -67,6 +67,9 @@ async function process(sl) {
 }
 
 document.addEventListener('DOMContentLoaded',async ()=>{
+    let Sl=load();
+    await process(Sl);
+
     BtnRefresh.addEventListener('click',async ()=>{
         document.querySelectorAll('.DivIt').forEach((i)=>{i.remove();}); //remove all previous elements in class 'DivIt'
         await process(Sl);
@@ -93,7 +96,4 @@ document.addEventListener('DOMContentLoaded',async ()=>{
         Sl.splice(Sl.indexOf(p),1);
         BtnRefresh.click(); //refresh
     });
-    
-    let Sl=load();
-    await process(Sl);
 });
