@@ -14,12 +14,13 @@
     </div>
     <hr></hr>
     <input type="text" id="url-field" >
-    <button id="go-button" onclick="()=>{location.href=`https://le-herisson.github.io/${document.getElementById('url-field').value}`}">Go</button>
+    <button id="go-button" onclick="go()">Go</button>
     <hr></hr>
     <div class="flex">
         <h1>Error: 404 Not Found</h1>
         <p>it seems like you tried to access something that do not exist !</p>
     </div>
     <script src="src/404.js"></script>
+    <script>function go(){location.href=`https://le-herisson.github.io/${document.getElementById('url-field').value}`;}</script>
 </body>
 </html>
