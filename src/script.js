@@ -14,7 +14,7 @@ function get_video_id(input, type) {
 
             default:
                 throw new Error("Error Invalid youtube link type!");
-    }      
+        }      
     } catch (e) {
         throw new Error("Error Invalid youtube link!\nErr : " + e);
     }
