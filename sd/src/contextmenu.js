@@ -1,7 +1,6 @@
 let lastRc;
-const mobile=RegExp('/Mobi|Android/i').test(window.navigator.userAgent) || window.matchMedia("(max-width: 767px)").matches;
 
-if (mobile) {document.onclick = rightClick;} else {document.oncontextmenu = rightClick;}
+if (isMobile()) {document.onclick = rightClick;} else {document.oncontextmenu = rightClick;}
 
 document.addEventListener('click', (e)=>{
     if(!e.target.id=='contextMenu') {hideMenu();}
@@ -21,7 +20,7 @@ document.addEventListener('click', (e)=>{
         default:
             break;
     }
-    if(!mobile) {hideMenu();}
+    if(!isMobile()) {hideMenu();}
 });
 
 function hideMenu() {document.getElementById("contextMenu").style.display = "none";}
