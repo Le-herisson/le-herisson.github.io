@@ -2,6 +2,7 @@
 a, label{display: block;}
 .DivList > * {margin-left: 8px;}
 .DivList {overflow: scroll;}
+.DivIt > * {font-family: Consolas, monospace;}
 button{
     width: 75px;
     cursor: pointer;
