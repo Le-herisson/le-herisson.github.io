@@ -38,6 +38,7 @@ async function process(sl) {
         let u=await get(`uptime/${sl[i]}`);
 
         DivIt.classList.add('DivIt');
+        if(isMobile()){DivIt.style.fontSize=10}
         
         console.debug(`re.exec(u): ${re.exec(u)}`);
 
