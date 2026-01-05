@@ -10,9 +10,7 @@
 <body style="overflow:hidden;">
 	<style>
 		:root {background-color: #101010;}
-		body {
-			margin: 0;
-		}
+		body {margin: 0;}
 		iframe {
 			display: block;
 			background: #000;
@@ -21,32 +19,31 @@
 			width: 100vw;
 		}
 	</style>
-	<h3 id="InfoText"></h3>
-	<iframe id="iframeTwitch" src="about:blank" scrolling="no" allowfullscreen></iframe>
+	<iframe id="ift" src="about:blank" scrolling="no" allowfullscreen></iframe>
     <script>
-		function ChannelError(){
-			document.getElementById('InfoText').innerHTML = 'Error please see the console';
-            document.getElementById('InfoText').style.fontFamily = "Consolas, monospace";
-			console.error('The channel is not specified');
-			console.warn('Use ?channel=:channel');
-            document.getElementById('iframeTwitch').style.display = 'none';
-			return "";
+		function ce(){
+			it=document.createElement('h1');
+			it.innerHTML='Error please see the console';
+            it.style.fontFamily="Consolas, monospace";
+			document.body.append(it);
+            document.getElementById('ift').style.display='none';
+			throw new Error("The channel is not specified, Use ?channel=:channel");
 		}
-		const hn = window.location.hostname;		
-		const params = new URLSearchParams(window.location.search);
+		const hn=window.location.hostname;		
+		const qsp=new URLSearchParams(window.location.search);
 	
-		const channel = params.get("channel") == null ? ChannelError() : params.get("channel");
-		const autoplay = params.get("autoplay") == null ? false : params.get("autoplay");
-		const muted = params.get("muted") == null ? true : params.get("muted");
+		const c=qsp.get("channel")==""||!qsp.has("channel")?ce():qsp.get("channel");
+		const a=qsp.get("autoplay")==null?false:qsp.get("autoplay");
+		const m=qsp.get("muted")==null?true:qsp.get("muted");
 	
-		console.debug("channel = " + channel);
-		console.debug("autoplay = " + autoplay);
-		console.debug("muted = " + muted);
+		console.debug("channel = "+c);
+		console.debug("autoplay = "+a);
+		console.debug("muted = "+m);
 	
-		const link = `https://player.twitch.tv/?channel=${channel}&parent=${hn}&autoplay=${autoplay}&muted=${muted}`;
-		console.debug(link);
-		document.getElementById('iframeTwitch').src = link;
-		window.resizeTo(1300, 777);
+		const l=`https://player.twitch.tv/?channel=${c}&parent=${hn}&autoplay=${a}&muted=${m}`;
+		console.debug(l);
+		document.getElementById('ift').src=l;
+		window.resizeTo(1300,777);
 	</script>
 </body>
 </html>
