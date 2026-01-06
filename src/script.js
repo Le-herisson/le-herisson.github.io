@@ -1,6 +1,6 @@
 document.addEventListener("contextmenu",(e)=>{e.preventDefault();});
-navigator.unregisterProtocolHandler('web+lhghytwoa','sl/proto?r=%s');
-navigator.registerProtocolHandler('web+lhgh','sl/proto.html?r=%s');
+navigator.unregisterProtocolHandler('web+lhghytwoa','/sl/proto?r=%s');
+navigator.registerProtocolHandler('web+lhgh','/sl/proto.html?r=%s');
 
 function get_video_id(input,type){
     try{
