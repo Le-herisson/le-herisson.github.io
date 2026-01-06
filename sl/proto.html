@@ -8,17 +8,33 @@
 <body>
     <div id="box"> </div>
     <noscript>
-        <h1>To use this webpage please enable JavaScript.</h1>
+        <p>
+            To use this webpage please enable JavaScript.
+        </p>
     </noscript>
     <script>
-        const params = new URLSearchParams(window.location.search);
-        if(params.has('r')&&params.get('r')!==""){
-            if(params.get('r').startsWith('web+lhghytwoa:')){
-                setTimeout(()=>{window.location.href=`./?url=https://yout-ube.com/watch?v=${decodeURIComponent(params.get('r')).replace("web+lhghytwoa:", "")}`},500);
-            }else{
-                document.getElementById("box").innerText="The parameter is invalid";
-            }
+        function e() {
+            document.getElementById("box").innerText="The parameter is invalid";
+            throw new Error("The parameter is invalid");
         }
+        const params = new URLSearchParams(window.location.search);
+        
+        if(params.has('r')){
+            let r=decodeURIComponent(params.get('r'));
+            if(r!==""&&r.startsWith('web+lhgh:')){
+                r=r.replace("web+lhgh:","");
+                if(r.startsWith('tl/')){
+                    r=r.replace("tl/","");
+                    if(r.startsWith('minecraft')){
+                        r=r.replace("minecraft","");
+                        setTimeout(()=>{window.location.href=`/Tools/lists/minecraft${r.startsWith('#')?r:''}`},500);
+                    }else{e();}
+                }else if(r.startsWith('ytvwoa/')){
+                    r=r.replace("ytvwoa/","");
+                    if(r.length===11){setTimeout(()=>{window.location.href=`./?url=https://yout-ube.com/watch?v=${r}`},500);}else{e();}
+                }
+            }
+        }else{e();}
     </script>    
 </body>
 </html>

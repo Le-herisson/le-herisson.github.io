@@ -1,8 +1,10 @@
-document.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+document.addEventListener("contextmenu",(e)=>{e.preventDefault();});
+navigator.unregisterProtocolHandler('web+lhghytwoa','sl/proto?r=%s');
+navigator.registerProtocolHandler('web+lhgh','sl/proto.html?r=%s');
 
-function get_video_id(input, type) {
-    try {
-        switch (type) {
+function get_video_id(input,type){
+    try{
+        switch (type){
             case "short":
                 return input.match(/https\:\/\/youtu\.be\/([a-zA-Z0-9-_]{11})/)[1];
 
@@ -15,8 +17,5 @@ function get_video_id(input, type) {
             default:
                 throw new Error("Error Invalid youtube link type!");
         }      
-    } catch (e) {
-        throw new Error("Error Invalid youtube link!\nErr : " + e);
-    }
-     
+    }catch(e){throw new Error("Invalid youtube link!\nErr : "+e);}
 }
