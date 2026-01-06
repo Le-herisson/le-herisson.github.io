@@ -5,27 +5,28 @@
     <meta name="color-scheme" content="dark">
     <title>SL</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="./src/style.css">
     <link rel="manifest" href="/manifest.json">
-    <script src='src/main.js'></script>
+    <script src='./src/main.js'></script>
+    <script src='/src/script.js'></script>
 </head>
 <body>
-    <script src='src/contextmenu.js'></script>
+    <script src='./src/contextmenu.js'></script>
     <h3>List:</h3>
-    <div class="DivList" id="DivList" style="border-color: blue; border-style: dotted; border-width: 1px; width: 100%; height: 400px; resize: vertical;">
+    <div class="DivList" id="DivList">
         
     </div>
     <br>
     <button id="BtnRefresh">
-        <img src="static/img/refresh.png" alt="BtnRefresh" width="20px">
+        <img src="./static/img/refresh.png" alt="BtnRefresh" width="20px">
         <label>Refresh</label>
     </button>
     <button id="BtnAdd">
-        <img src="static/img/add.png" alt="BtnAdd" width="20px">
+        <img src="./static/img/add.png" alt="BtnAdd" width="20px">
         <label>Add</label>
     </button>
     <button id="BtnRemove">
-        <img src="static/img/remove.png" alt="BtnRemove" width="20px">
+        <img src="./static/img/remove.png" alt="BtnRemove" width="20px">
         <label>Remove</label>
     </button>
     <div id="contextMenu" class="context-menu">

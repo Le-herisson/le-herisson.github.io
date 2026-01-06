@@ -17,9 +17,9 @@
 	"theme_color": "#101010",
 	"shortcuts": [
 		{
-			"name": "YouTube w/o ads",
-			"short_name": "ytwoa",
-			"description": "YouTube without ads",
+			"name": "YouTube vids w/o ads",
+			"short_name": "ytvwoa",
+			"description": "YouTube videos without ads",
 			"url": "/embed?source=pwa",
 			"icons": [{ "src": "/src/YTNC.ico", "sizes": "256x256" }]
 		},

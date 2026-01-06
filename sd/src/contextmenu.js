@@ -1,10 +1,8 @@
 let lastRc;
-
-if (isMobile()) {document.onclick = rightClick;} else {document.oncontextmenu = rightClick;}
-
-document.addEventListener('click', (e)=>{
-    if(!e.target.id=='contextMenu') {hideMenu();}
-    switch (e.target.id) {
+if(isMobile()){document.onclick=rightClick;}else{document.oncontextmenu = rightClick;}
+document.addEventListener('click',(e)=>{
+    if(!e.target.id=='contextMenu'){hideMenu();}
+    switch (e.target.id){
         case "openChannel":
             open(`https://twitch.tv/${lastRc}`);
             break;
@@ -20,14 +18,14 @@ document.addEventListener('click', (e)=>{
         default:
             break;
     }
-    if(!isMobile()) {hideMenu();}
+    if(!isMobile()){hideMenu();}
 });
 
-function hideMenu() {document.getElementById("contextMenu").style.display = "none";}
-function rightClick(e) {
-    if (document.getElementById("contextMenu").style.display == "block"){hideMenu();}
-    else {
-        if (e.target.className=="pseudo"){
+function hideMenu(){document.getElementById("contextMenu").style.display="none";}
+function rightClick(e){
+    if(document.getElementById("contextMenu").style.display=="block"){hideMenu();}
+    else{
+        if(e.target.className=="pseudo"){
             e.preventDefault();
             let menu=document.getElementById("contextMenu");
             lastRc=e.target.innerText;

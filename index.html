@@ -12,25 +12,22 @@
 <body>
   <noscript>
     <p>
-      This site is best viewed with Javascript please use "chrome://settings/content/siteDetails?site=https%3A%2F%2Fle-herisson.github.io%2F".
+      This site need the Javascript permition to be turned on.
     </p>
   </noscript>
   <script src="src/script.js"></script>
-  <script>
-    navigator.registerProtocolHandler('web+lhghytwoa', 'sl/proto?r=%s');
-  </script>
   <div class="topbar">
-    <a title="${window.location.href}" class="link" id="linkHomepage" href="javascript:void(0);" onclick="javascript:alert('You are alredy at the home page');">Home</a>
+    <a title="${window.location.href}" class="link" id="linkHomepage" href="javascript:void(0);" onclick="javascript:alert('You are already at the home page');">Home</a>
     <a title="Go back in browser history" class="link" id="back" href="javascript:history.back();">Back</a>
   </div>
   <hr></hr>
   <h2>Pages :</h2>
   <ul>
-    <li><a class="link" title="Go to ./iframe/" id="link_Iframe" href="./iframe/">Iframe</a></li>
-    <li><a class="link" title="Go to ./MRE/" id="link_MRE" href="./MRE/">Matrix Rain Effect</a></li>
-    <li><a class="link redlink" title="Go to ./example" id="link_example" href="./example/">{examplePage.link.name}</a></li>
-    <li><a class="link" title="Go to ./embed/" id="link_embed" href="./embed/">./embed/</a></li>
+    <li><a class="link" title="Go to ./embed/" id="link_embed" href="./embed/">YouTube videos without ads</a></li>
+    <li><a class="link" title="Go to ./MRE/" id="link_mre" href="./MRE/">Matrix Rain Effect</a></li>
     <li><a class="link" title="Go to ./sd/" id="link_sd" href="./sd/">Streamer uptime list</a></li>
+    <li><a class="link" title="Go to ./Tools/lists/" id="link_tools" href="./Tools/lists/">Tools/lists</a></li>
+    <li><a class="link redlink" title="Go to ./example" id="link_example" href="./example/">{examplePage.link.name}</a></li>
   </ul>
 </body>
 </html>
