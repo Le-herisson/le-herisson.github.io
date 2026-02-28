@@ -26,7 +26,7 @@
 		{
 			"name": "Matrix Rain Effect",
 			"short_name": "MRE",
-			"description": "View an effect that look like the matrix rain",
+			"description": "View an effect that look like the matrix rain.",
 			"url": "/MRE?source=pwa",
 			"icons": [{ "src": "/src/MRE.ico", "sizes": "256x256" }]
 		},
