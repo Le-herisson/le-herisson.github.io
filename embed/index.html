@@ -1,102 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark">
-  <link rel="stylesheet" type="text/css" href="/src/style.css">
-  <link rel="manifest" href="/manifest.json">
-  <title>https://le-herisson.github.io/embed</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="color-scheme" content="dark">
+	<link rel="stylesheet" type="text/css" href="/src/style.css">
+	<link rel="manifest" href="/manifest.json">
+	<title>Helper page for /embed/*</title>
+	<meta name="description" content="A page that make an easier access to ytvwoa and twwoa pages.">
+	<meta property="og:url" content="https://le-herisson.github.io/embed/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Helper page for /embed/*">
+	<meta property="og:description" content="A page that make an easier access to ytvwoa and twwoa pages.">
+	<meta property="og:image" content="../favicon.png">
+	<meta property="og:image:width" content="256">
+	<meta property="og:image:height" content="256">
 </head>
 <body>
-  <noscript>
-      <p>
-          This site need the Javascript permition to be turned on.
-      </p>
-  </noscript>
-  <script src="/src/script.js"></script>
-  <script type="text/javascript">
-    var currentEnabled=null;
-    function enableElement(elem){
-      if(currentEnabled){currentEnabled.disabled=true;}
-      elem.disabled=false;
-      currentEnabled=elem;
-    }
-
-    document.addEventListener('DOMContentLoaded',function(){
-      document.getElementById('Go_button').addEventListener('click',async function(){
-        sLinkIo=document.getElementById("sLinkI");
-        bLinkIo=document.getElementById("bLinkI");
-        vIdIo=document.getElementById("vIdI");
-
-        if (sLinkIo.disabled&&bLinkIo.disabled&&vIdIo.disabled) {
-          alert("Error :\nPlease check an option\nand fill all the requireds fields!");
-        } else {
-          if(!sLinkIo.disabled){console.debug(`calulated id : ${get_video_id(sLinkIo.value,"short")}`);sLinkIo.value=get_video_id(sLinkIo.value,"short");}
-          if(!bLinkIo.disabled){console.debug(`calulated id : ${get_video_id(bLinkIo.value,"long")}`);bLinkIo.value=get_video_id(bLinkIo.value,"long");}
-          if(!vIdIo.disabled){console.debug(`calulated id : ${get_video_id(vIdIo.value,"id")}`);vIdIo.value=get_video_id(vIdIo.value,"id");}
-
-          document.getElementById("VidForm").action="youtube";
-          document.getElementById("VidForm").submit();
-        }
-      });
-      document.getElementById('Rst_button').addEventListener('click',function(){if(confirm('Reset form ?')){document.getElementById("VidForm").reset();}});
-  	  document.getElementById('sLinkRb').addEventListener('change',function(){if(this.checked){document.getElementById('sLinkI').focus();}});
-      document.getElementById('bLinkRb').addEventListener('change',function(){if(this.checked){document.getElementById('bLinkI').focus();}});
-      document.getElementById('vIdRb').addEventListener('change',function(){if(this.checked){document.getElementById('vIdI').focus();}});
-    });
-  </script>
-  <style>
-    .vRb, .link, label {
-      cursor: pointer;
-    }
-  </style>
-  <div class="topbar">
-    <a title="Home" class="link link_homepage" id="linkHomepage" href="../">Home</a>
-	  <a title="Go back in browser history" class="link link_back" id="back" href="javascript:history.back();">Back</a>
-  </div>
-  <hr></hr>
-  <h2>YouTube videos without ads :</h2>
-  <form id="VidForm" method="get">
-    <dl>
-      <dt>Video</dt>
-      <fieldset>
-        <dd>
-          <input class="vRb" type="radio" id="sLinkRb" name="VideoRb" value="sLink" onclick="enableElement(this.form.elements['sLinkI']);" />
-          <label for="sLinkRb">Link (small) : </label>
-          <input disabled type="url" id="sLinkI" name="vId" minlength="28" maxlength="39" size="28" />
-        </dd>
-        <dd>
-          <input class="vRb" type="radio" id="bLinkRb" name="VideoRb" value="bLink" onclick="enableElement(this.form.elements['bLinkI']);" />
-          <label for="bLinkRb">Link (big) : </label>
-          <input disabled type="url" id="bLinkI" name="vId" minlength="39" size="28" />
-        </dd>
-        <dd>
-          <input class="vRb" type="radio" id="vIdRb" name="VideoRb" value="vId" onclick="enableElement(this.form.elements['vIdI']);" />
-          <label for="vIdRb">Id : </label>
-          <input disabled type="text" id="vIdI" name="vId" minlength="11" maxlength="11" size="11" />
-        </dd>
-      </fieldset>
-      <dt>Options</dt>
-      <fieldset>
-        <dd>
-          <strong title="Work In Progress" class="wip">[WIP]</strong>
-          <label for="VideoPlayers">Video player : </label>
-          <select disabled title="Required" class="vp required"  id="VideoPlayers" name="VP" required>
-            <option disabled="disabled">Please select an option</option>
-            <option id="VP_OYTP" value="OYTP" name="VP_OYTP">Official YouTube Player</option>
-            <option id="VP_YTNC" value="YTNC" name="VP_YTNC">YT nocookies</option>
-            <option id="VP_EP" value="EP" name="VP_EP">Embed player</option>
-          </select>
-        </dd>
-        <dd>
-          <label for="option_dm_cb">darkmode :</label>
-          <input id="option_dm_cb" type="checkbox" name="dm" checked>
-        </dd>
-      </fieldset>
-    </dl>
-    <button title="Generate link" class="go" id="Go_button" type="button">Go</button>
-    <button title="Reset all the fields" class="rst" id="Rst_button" type="button">Reset</button>
-  </form>
+	<noscript>
+		<p>
+			This site need the Javascript permition to be turned on.
+		</p>
+	</noscript>
+	<script src="/src/script.js"></script>
+	<script src="./index.js"></script>
+	<style>.vRb,.link,label{cursor: pointer;}</style>
+	<div class="topbar">
+		<a title="Home" class="link link_homepage" id="linkHomepage" href="../">Home</a>
+		<a title="Go back in browser history" class="link link_back" id="back" href="javascript:history.back();">Back</a>
+	</div>
+	<hr></hr>
+	<h2>YouTube videos without ads :</h2>
+	<form id="VidForm" method="get">
+		<dl>
+		<dt>Video</dt>
+		<fieldset>
+			<dd>
+				<input class="vRb" type="radio" id="sLinkRb" name="VideoRb" value="sLink" onclick="enableElement(this.form.elements['sLinkI']);" />
+				<label for="sLinkRb">Link (small) : </label>
+				<input disabled type="url" id="sLinkI" name="vId" minlength="28" maxlength="39" size="28" />
+			</dd>
+			<dd>
+				<input class="vRb" type="radio" id="bLinkRb" name="VideoRb" value="bLink" onclick="enableElement(this.form.elements['bLinkI']);" />
+				<label for="bLinkRb">Link (big) : </label>
+				<input disabled type="url" id="bLinkI" name="vId" minlength="39" size="28" />
+			</dd>
+			<dd>
+				<input class="vRb" type="radio" id="vIdRb" name="VideoRb" value="vId" onclick="enableElement(this.form.elements['vIdI']);" />
+				<label for="vIdRb">Id : </label>
+				<input disabled type="text" id="vIdI" name="vId" minlength="11" maxlength="11" size="11" />
+			</dd>
+		</fieldset>
+		<dt>Options</dt>
+		<fieldset>
+			<dd>
+				<strong title="Work In Progress" class="wip">[WIP]</strong>
+				<label for="VideoPlayers">Video player : </label>
+				<select disabled title="Required" class="vp required"  id="VideoPlayers" name="VP" required>
+					<option disabled="disabled">Please select an option</option>
+					<option id="VP_OYTP" value="OYTP" name="VP_OYTP">Official YouTube Player</option>
+					<option id="VP_YTNC" value="YTNC" name="VP_YTNC">YT nocookies</option>
+					<option id="VP_EP" value="EP" name="VP_EP">Embed player</option>
+				</select>
+			</dd>
+			<dd>
+				<label for="option_dm_cb">darkmode :</label>
+				<input id="option_dm_cb" type="checkbox" name="dm" checked>
+			</dd>
+		</fieldset>
+		</dl>
+		<button title="Generate link" class="go" id="Go_button" type="button">Go</button>
+		<button title="Reset all the fields" class="rst" id="Rst_button" type="button">Reset</button>
+	</form>
 </body>
 </html>
