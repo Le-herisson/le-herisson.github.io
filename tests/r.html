@@ -2,18 +2,18 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>auto-closing page</title>
+    <title>page</title>
     <meta name="color-scheme" content="dark">
-	<meta name="description" content="Just a page that closes itself...">
+	<meta name="description" content="Just a page that open links...">
 	<meta property="og:url" content="https://le-herisson.github.io">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="auto-closing page">
-	<meta property="og:description" content="Just a page that closes itself...">
+	<meta property="og:title" content="page">
+	<meta property="og:description" content="Just a page that open links...">
 	<meta property="og:image" content="../favicon.png">
 	<meta property="og:image:width" content="256">
 	<meta property="og:image:height" content="256">
     <link rel="manifest" href="/manifest.json">
-    <script src="./ac.js"></script>
+    <script src="./r.js"></script>
 </head>
 <body>
     <div class="topbar">
@@ -21,6 +21,7 @@
         <a title="Go back in browser history" class="link" id="back" href="javascript:history.back();">Back</a>
     </div>
     <hr></hr>
-    <button id="btn_close">close</button>
+    <input type="text" id="input-text_uri">
+    <button id="btn_open">open</button>
 </body>
 </html>
