@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded",()=>{
-    document.getElementById("btn_open").addEventListener("click",()=>{
+    document.getElementById("btn_go").addEventListener("click",()=>{
         setTimeout(()=>{
-            window.open(document.getElementById('input-text_uri').value);
+            location.href=document.getElementById('input-text_uri').value;
         },500);
     });
 });
