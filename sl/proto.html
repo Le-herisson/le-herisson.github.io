@@ -31,7 +31,7 @@
                     }else{e();}
                 }else if(r.startsWith('ytvwoa/')){
                     r=r.replace("ytvwoa/","");
-                    if(r.length===11){setTimeout(()=>{window.location.href=`./?url=https://yout-ube.com/watch?v=${r}`},500);}else{e();}
+                    if(r.length===11){setTimeout(()=>{window.location.href=`./?url=https://yout-ube.com/watch?v=${r.slice(0,11)}`},500);}else{e();}
                 }
             }
         }else{e();}
