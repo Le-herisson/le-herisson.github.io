@@ -33,6 +33,7 @@
 		const hn=window.location.hostname;		
 		const qsp=new URLSearchParams(window.location.search);
 	
+		const t=qsp.has("t");
 		const c=qsp.get("channel")==""||!qsp.has("channel")?ce():qsp.get("channel");
 		const a=qsp.get("autoplay")==null?false:qsp.get("autoplay");
 		const m=qsp.get("muted")==null?true:qsp.get("muted");
@@ -45,7 +46,7 @@
 		console.debug(l);
 		document.getElementById('ift').src=l;
 		window.resizeTo(1300,777);
-		document.title=`integration twitch - ${c}`;
+		document.title=t?"custom title hehe":`integration twitch - ${c}`;
 	</script>
 </body>
 </html>
