@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <title>Youtube Player</title>
+    <meta name="description" content="YouTube videos without ads...">
+    <meta property="og:url" content="https://le-herisson.github.io/embed/youtube">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ytvwoa">
+    <meta property="og:description" content="YouTube videos without ads...">
+    <meta property="og:image" content="../src/YTNC.ico">
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="256">
+</head>    
+<body>
+    <div>
+        <h3 id="InfoText"></h3>
+        <iframe id="iframeYt" src="about:blank" width="100%" style="border-radius: 0px; border: none; aspect-ratio: 16/9; min-height: 250px;" allowfullscreen></iframe>
+    </div>
+    <script>
+        function IdError(r) {
+            let infoText=document.getElementById('InfoText');
+            infoText.innerHTML='Error please see the console';
+            infoText.style.fontFamily='Consolas, monospace';
+            infoText.style.backgroundColor='Red';
+            console.debug(r);
+            console.error(r=='missing'?'The id is not specified':r=='invalid'?'The id specified is invalid':'Error');
+            console.warn("Use ?vId=:vidId like : /[a-zA-Z0-9-_]{11}/g");
+            document.getElementById('iframeYt').remove();
+            document.title='Youtube Player - Invalid vId...';
+        }
+        const params=new URLSearchParams(window.location.search);
+        if(params.has('dm')&&params.get('dm')=='on'){document.body.style.backgroundColor="#101010";}
+        if(params.has('vId')){
+            params.append('id',params.get('vId'));
+            params.delete('vId');
+        }
+        if(params.get('id')==null){
+            IdError('missing');
+        }else{
+            const id=params.get('id');
+            console.debug("id = "+id);
+            if(id.length()!==11){
+                IdError('invalidLenght')
+            }else{
+                let pattern=/[a-zA-Z0-9-_]{11}/;
+                if(pattern.test(id)) {
+                    fetch(`https://youtube.com/oembed?url=https://youtu.be/${id}`).then(res=>res.json())
+                        .then((res)=>{
+                            document.title=`${res['title'].slice(0,29)}... - ${document.title}`;
+                            document.getElementById('iframeYt').src=`https://www.yout-ube.com/embed/${id}?iv_load_policy=3&start=0&cc_load_policy=0&playsinline=0`;
+                            if("mediaSession" in navigator){
+                                navigator.mediaSession.metadata=new MediaMetadata({
+                                    title: res['title'],
+                                    artist: res['author'],
+                                    album: "",
+                                    artwork: [{
+                                        src: `https://i.ytimg.com/vi/${id}/maxres`,
+                                        sizes: "96x96",
+                                        type: "image/png"
+                                    }]
+                                });
+                            }
+                        }).catch(()=>{IdError('invalid');});
+                }else{IdError('invalid');}
+            }
+        }
+    </script>
+</body>
+</html>
