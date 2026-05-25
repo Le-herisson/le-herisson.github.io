@@ -42,7 +42,7 @@
         }else{
             const id=params.get('id');
             console.debug("id = "+id);
-            if(id.length()!==11){
+            if(id.length!==11){
                 IdError('invalidLenght')
             }else{
                 let pattern=/[a-zA-Z0-9-_]{11}/;
