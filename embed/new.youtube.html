@@ -54,11 +54,11 @@
                             if("mediaSession" in navigator){
                                 navigator.mediaSession.metadata=new MediaMetadata({
                                     title: res['title'],
-                                    artist: res['author'],
+                                    artist: res['author_name'],
                                     album: "",
                                     artwork: [{
-                                        src: `https://i.ytimg.com/vi/${id}/maxres`,
-                                        sizes: "96x96",
+                                        src: res['thumbnail_url'],
+                                        sizes: `${res['thumbnail_height']}x${res['thumbnail_width']}`,
                                         type: "image/png"
                                     }]
                                 });
