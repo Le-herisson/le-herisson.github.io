@@ -31,16 +31,16 @@
             document.getElementById('iframeYt').remove();
             document.title='Youtube Player - Invalid vId...';
         }
-        const params=new URLSearchParams(window.location.search);
-        if(params.has('dm')&&params.get('dm')=='on'){document.body.style.backgroundColor="#101010";}
-        if(params.has('vId')){
-            params.append('id',params.get('vId'));
-            params.delete('vId');
+        const qsp=new URLSearchParams(window.location.search);
+        if(qsp.has('dm')&&qsp.get('dm')=='on'){document.body.style.backgroundColor="#101010";}
+        if(qsp.has('vId')){
+            qsp.append('id',qsp.get('vId'));
+            qsp.delete('vId');
         }
-        if(params.get('id')==null){
+        if(qsp.get('id')==null){
             IdError('missing');
         }else{
-            const id=params.get('id');
+            const id=qsp.get('id');
             console.debug("id = "+id);
             if(id.length!==11){
                 IdError('invalidLenght')
