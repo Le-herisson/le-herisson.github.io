@@ -25,53 +25,55 @@
 	<script src="/src/script.js"></script>
 	<script src="./index.js"></script>
 	<style>.vRb,.link,label{cursor: pointer;}</style>
-	<div class="topbar">
-		<a title="Home" class="link link_homepage" id="linkHomepage" href="../">Home</a>
-		<a title="Go back in browser history" class="link link_back" id="back" href="javascript:history.back();">Back</a>
-	</div>
-	<hr></hr>
-	<h2>YouTube videos without ads :</h2>
-	<form id="VidForm" method="get">
-		<dl>
-		<dt>Video</dt>
-		<fieldset>
-			<dd>
-				<input class="vRb" type="radio" id="sLinkRb" name="VideoRb" value="sLink" onclick="enableElement(this.form.elements['sLinkI']);" />
-				<label for="sLinkRb">Link (small) : </label>
-				<input disabled type="url" id="sLinkI" name="vId" minlength="28" maxlength="39" size="28" />
-			</dd>
-			<dd>
-				<input class="vRb" type="radio" id="bLinkRb" name="VideoRb" value="bLink" onclick="enableElement(this.form.elements['bLinkI']);" />
-				<label for="bLinkRb">Link (big) : </label>
-				<input disabled type="url" id="bLinkI" name="vId" minlength="39" size="28" />
-			</dd>
-			<dd>
-				<input class="vRb" type="radio" id="vIdRb" name="VideoRb" value="vId" onclick="enableElement(this.form.elements['vIdI']);" />
-				<label for="vIdRb">Id : </label>
-				<input disabled type="text" id="vIdI" name="vId" minlength="11" maxlength="11" size="11" />
-			</dd>
-		</fieldset>
-		<dt>Options</dt>
-		<fieldset>
-			<dd>
-				<strong title="Work In Progress" class="wip">[WIP]</strong>
-				<label for="VideoPlayers">Video player : </label>
-				<select disabled title="Required" class="vp required"  id="VideoPlayers" name="VP" required value="VP_YTNC">
-					<optgroup label="Please select an option">
-						<option id="VP_OYTP" value="OYTP" name="VP_OYTP">Official YouTube Player</option>
-						<option id="VP_YTNC" value="YTNC" name="VP_YTNC" selected>YT nocookies</option>
-						<option id="VP_EP" value="EP" name="VP_EP">Embed player</option>
-					</optgroup>
-				</select>
-			</dd>
-			<dd>
-				<label for="option_dm_cb">darkmode :</label>
-				<input id="option_dm_cb" type="checkbox" name="dm" checked>
-			</dd>
-		</fieldset>
-		</dl>
-		<button title="Generate link" class="go" id="Go_button" type="button">Go</button>
-		<button title="Reset all the fields" class="rst" id="Rst_button" type="button">Reset</button>
-	</form>
+	<main class="unselectable">
+		<div class="topbar">
+			<a title="Home" class="link link_homepage" id="linkHomepage" href="../">Home</a>
+			<a title="Go back in browser history" class="link link_back" id="back" href="javascript:history.back();">Back</a>
+		</div>
+		<hr></hr>
+		<h2>YouTube videos without ads :</h2>
+		<form id="VidForm" method="get">
+			<dl>
+			<dt>Video</dt>
+			<fieldset>
+				<dd>
+					<input class="vRb" type="radio" id="sLinkRb" name="VideoRb" value="sLink" onclick="enableElement(this.form.elements['sLinkI']);" />
+					<label for="sLinkRb">Link (small) : </label>
+					<input disabled type="url" id="sLinkI" name="vId" minlength="28" maxlength="39" size="28" />
+				</dd>
+				<dd>
+					<input class="vRb" type="radio" id="bLinkRb" name="VideoRb" value="bLink" onclick="enableElement(this.form.elements['bLinkI']);" />
+					<label for="bLinkRb">Link (big) : </label>
+					<input disabled type="url" id="bLinkI" name="vId" minlength="39" size="28" />
+				</dd>
+				<dd>
+					<input class="vRb" type="radio" id="vIdRb" name="VideoRb" value="vId" onclick="enableElement(this.form.elements['vIdI']);" />
+					<label for="vIdRb">Id : </label>
+					<input disabled type="text" id="vIdI" name="vId" minlength="11" maxlength="11" size="11" />
+				</dd>
+			</fieldset>
+			<dt>Options</dt>
+			<fieldset>
+				<dd>
+					<strong title="Work In Progress" class="wip">[WIP]</strong>
+					<label for="VideoPlayers">Video player : </label>
+					<select disabled title="Required" class="vp required"  id="VideoPlayers" name="VP" required value="VP_YTNC">
+						<optgroup label="Please select an option">
+							<option id="VP_OYTP" value="OYTP" name="VP_OYTP">Official YouTube Player</option>
+							<option id="VP_YTNC" value="YTNC" name="VP_YTNC" selected>YT nocookies</option>
+							<option id="VP_EP" value="EP" name="VP_EP">Embed player</option>
+						</optgroup>
+					</select>
+				</dd>
+				<dd>
+					<label for="option_dm_cb">darkmode :</label>
+					<input id="option_dm_cb" type="checkbox" name="dm" checked>
+				</dd>
+			</fieldset>
+			</dl>
+			<button title="Generate link" class="go" id="Go_button" type="button">Go</button>
+			<button title="Reset all the fields" class="rst" id="Rst_button" type="button">Reset</button>
+		</form>
+	</main>
 </body>
 </html>
