@@ -12,7 +12,7 @@ function openFolder(){
 
     input.click()
     input.addEventListener('change', (evt)=>{
-        alert(evt.toString())
+        console.log(evt)
         input.remove()
     })
 }
