@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>url redirector</title>
+    <meta name="color-scheme" content="dark">
+</head>
+<body>
+    <div id="box"> </div>
+    <noscript>
+        <p>
+            To use this webpage please enable JavaScript.
+        </p>
+    </noscript>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const o = params.get('o')
+        if(
+            o !== "" &&
+            o.slice("_")[1].length == 8 &&
+            o.slice("_")[1] instanceof Number
+        ){
+            const _res = await fetch("/Api/conf.json", { method: "GET" }).then((r)=>{ return JSON.parse(r.json()) }).catch((e)=>{ document.getElementById("box").innerText="The parameter is invalid or missing: "+e; });
+            if ( _res.availablesSrc[o.slice("_")[0]].contains(o.slice("_")[1]) ) {
+                setTimeout(()=>{window.location.href=_res.sources[o.slice("_")[1]];},250);
+            }
+        }else{
+            document.getElementById("box").innerText="The parameter is invalid or missing";
+        }
+    </script>
+</body>
+</html>

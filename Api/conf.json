@@ -1,4 +1,12 @@
 {
-    "version":"1.0.9",
-    "dateLatestChanges":"05/28/26"
+    "version": "1.1.2",
+    "dateLatestChanges": "06/25/26",
+    "availablesSrc": {
+        "testsApi": [
+            79450802
+        ]
+    },
+    "sources": {
+        "79450802": "https://github.com/le-herisson/"
+    }
 }
