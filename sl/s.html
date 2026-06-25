@@ -13,6 +13,10 @@
         </p>
     </noscript>
     <script>
+        async function fetchApi() {
+            return await fetch("/Api/conf.json", { method: "GET" }).then((r)=>{ return JSON.parse(r.json()) }).catch((e)=>{ document.getElementById("box").innerText="The parameter is invalid or missing: "+e; });
+        }
+        
         const params = new URLSearchParams(window.location.search);
         const o = params.get('o')
         if(
@@ -20,7 +24,7 @@
             o.slice("_")[1].length == 8 &&
             o.slice("_")[1] instanceof Number
         ){
-            const _res = await fetch("/Api/conf.json", { method: "GET" }).then((r)=>{ return JSON.parse(r.json()) }).catch((e)=>{ document.getElementById("box").innerText="The parameter is invalid or missing: "+e; });
+            const _res = fetchApi();
             if ( _res.availablesSrc[o.slice("_")[0]].contains(o.slice("_")[1]) ) {
                 setTimeout(()=>{window.location.href=_res.sources[o.slice("_")[1]];},250);
             }
