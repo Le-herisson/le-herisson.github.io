@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const o = params.get('o');
     if( o !== "" && o.split("_")[1].length == 8 ) {
         const _res = await fetchApi().then((j)=>{return JSON.parse(j);});
-        if ( _res.availablesSrc[o.split("_")[0]].contains(o.split("_")[1]) ) {
+        if ( _res.availablesSrc[o.split("_")[0]].includes(Number(o.split("_")[1])) ) {
             setTimeout(()=>{
                 window.location.href = _res.sources[o.split("_")[1]];
             },250);
