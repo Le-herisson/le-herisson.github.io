@@ -1,12 +1,16 @@
 {
-    "version": "1.1.7",
+    "version": "1.1.8",
     "dateLatestChanges": "06/25/26",
     "availablesSrc": {
         "testsApi": [
             79450802
+        ],
+        "misc": [
+            43739289
         ]
     },
     "sources": {
-        "79450802": "https://github.com/le-herisson/"
+        "79450802": "https://github.com/le-herisson/",
+        "43739289": "/sd/?st=katchanvt&st=mielcrapouille&st=theguill84&st=filian&st=ririgaki&st=mellumine&st=scammerpayback&st=Lvcyd&st=vedal987&st=minikomew&st=cerbervt&st=mathox&st=just1chat&st=camila&st=squchan&st=ironmouse&st=scammerrevolts&st=echorosen&st=endermanch&st=okplonk&st=kikitchiwi&st=marcel86&st=ponokichan&st=bao&st=the8bitdrummer&st=rai_byte&st=ellie_minibot&st=chrchie&st=samekosaba&st=Demmy&st=Monii&st=Momoments&st=mcpepii&st=ishoya_&st=MariYume&st=shoomimi&st=masae&st=itsknarfy"
     }
 }
